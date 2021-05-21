@@ -61,6 +61,84 @@ func main()  {
 	fmt.Println("Ingrese su edad:")
 	fmt.Scanln(&edad)
 
-	fmt.Println("Tu nombre es:", nombre, "Tu edad es:", edad)
+	fmt.Println("Tu nombre es:", nom, "Tu edad es:", edad)
 
+	/*
+	Operadores 
+	+ - * /
+	== != < > <= >=
+	not: !
+	And: &&
+	Or: ||
+	*/
+
+	//Condicionales
+	if true{
+		fmt.Println("verdadero")
+	}else{
+		fmt.Println("No se ejecuta")
+	}
+
+	if num1 > 3{
+		fmt.Println("Numero mayor que 3")
+	} 
+
+
+	//Incrementos
+	//a +=1 Es igual a a++
+	a := 0
+	a++
+	fmt.Println(a)
+
+	//Bucles
+	//No existe while ni do-while, solo for
+	i := 0
+	for i<5{
+		fmt.Println(i)
+		i++	
+	}
+
+	for c := 0; c<10;c++{
+		
+		if c == 3{
+			fmt.Println("No se ejecuta el 3")
+			continue
+		}
+
+		if c == 7{
+			fmt.Println("Se corta el bucle en 7")
+			break
+		}
+		fmt.Println(c)
+	}
+
+
+	//Estructuras de datos
+	//Array de tamaño estático
+	var arr1 [3] string
+	arr1[0] = "Dato0"
+	arr1[1] = "Dato1"
+	arr1[2] = "Dato2"
+
+	arr2 := [2] int {1,2}
+
+	fmt.Println(arr1)
+	fmt.Println(arr2)
+
+	//Slicen
+	var sli1 [] string
+
+	sli1 = append(sli1,"dato")
+
+	fmt.Println(sli1,"dato")
+
+	//Funciones
+	funcion1()
+
+}
+
+//Funciones
+
+func funcion1(){
+	fmt.Println("Función 1")
 }
