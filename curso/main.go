@@ -1,6 +1,37 @@
 package main //Define el paquete main
 
-import "fmt" // Importa fmt
+
+// Importa librerías
+import (
+	"fmt"
+	"strings"
+	//"github.com/julianVelandia/ApuntesCursoGo/curso/Paquete1"
+)
+
+
+//Estructuras
+//Análogo de clases en go
+type Estructura struct{
+	atributo1 string
+	atributo2 [] int
+} 
+
+//Herencia
+type Estructura2 struct{
+	atributo3 string
+	atributo4 [] int
+	Estructura // Herencia
+} 
+
+
+
+//Métodos
+//metodo1 
+func (e Estructura) metodo1(parametro1 string){
+	fmt.Println("Método 1: ", parametro1," Clase: ",e.atributo1)
+}
+
+
 
 func main()  {
 	/*
@@ -134,7 +165,86 @@ func main()  {
 
 	//Funciones
 	funcion1()
+	nombreFunc2,edadFunc2 := funcion2("Julián")
+	fmt.Println(nombreFunc2,edadFunc2)
 
+	//Funciones con strings
+	//documentación https://golang.org/pkg/strings/
+
+	texto := "Hola mundo"
+	fmt.Println(strings.ToUpper(texto))
+	fmt.Println(strings.Count(texto,"a"))
+
+
+	//Paquetes
+	//Paquete1.FuncionPaquete1()
+
+	//Maps
+	//Análogos a los diccionarios en python
+
+	mapa1 := map[string] int{
+		"Llave1":4,
+		"Llave2":3,
+		"Llave3":2,
+		"Llave4":1,
+	}
+
+	fmt.Print("Mapa 1: ",mapa1)
+	fmt.Println()
+
+	//Agregar
+	mapa1["NuevaClave"] = 5
+	fmt.Print("Mapa 1 con nuevo valor: ",mapa1)
+
+	//Imprimir
+	fmt.Print("Mapa 1 por Clave: ",mapa1["Llave2"])
+
+	//Eliminar
+	delete(mapa1, "Llave4")
+	fmt.Print("Mapa 1 eliminando un valor: ",mapa1)
+	
+
+	//Declararlo vacio
+	mapa2 := make(map[string] string)
+	mapa2["uno"] = "UNO"
+
+	fmt.Println(mapa2)
+
+	
+	//Métodp Range
+	arr3 := []string{
+		"uno","dos","tres",
+	}
+
+	for i, num := range arr3{
+		fmt.Println(i," ==> ",num)
+	}
+
+	for k,v := range mapa1{
+		fmt.Println("Key: ",k,"Value: ",v)
+	}
+
+
+	//Estructuras
+	est1 := Estructura{
+		atributo1 : "Atributo 1",
+		atributo2 : []int {
+			1,2,3,4,
+		},
+	}
+
+	fmt.Println("Estructuras: ",est1)
+	fmt.Println("Atributo 1: ",est1.atributo1)
+	fmt.Println("Metodos")
+	est1.metodo1("Parametro")
+
+	//Herencia
+	est2 := new(Estructura2) //Estructura vacía
+	est2.atributo1 = "Atributo1"
+	est2.atributo2 = []int {1,2,3,}
+	est2.atributo3 = "Atributo3"
+	est2.atributo4 = []int {4,5,6,}
+	fmt.Println(est2)
 }
 
 //Funciones
@@ -142,3 +252,12 @@ func main()  {
 func funcion1(){
 	fmt.Println("Función 1")
 }
+
+func funcion2(varNombre string) (string,int){ //Indica lo que devuelve la función
+	
+	var varEdad int
+	varEdad = 21
+
+	return varNombre,varEdad
+}
+
