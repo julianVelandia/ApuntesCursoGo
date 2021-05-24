@@ -1,0 +1,23 @@
+{{define "crear"}}
+{{template "cabecera"}}
+
+<form method="POST" action="/insertar">
+
+    <h2>Nombre: </h2>
+    <input type="text" placeholder="Nombre">
+
+
+    <h2>Correo: </h2>
+    <input type="email" placeholder="Correo">
+
+    <button type="submit">
+        Agregar
+    </button>
+
+</form>
+
+
+
+
+{{template "pie"}}
+{{end}}
